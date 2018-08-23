@@ -1,0 +1,137 @@
+<h1> Toastr Examples </h1>
+<hr>
+
+<button type="button" class="btn btn-success" (click)="createToastrMessage()">
+  Generate Toastr Message
+</button>
+
+<br><br>
+
+<div class="p-b-100">
+  <h3>
+    Config your toast message
+  </h3>
+  <hr>
+  
+  <div class="row">
+    <div class="col">
+        <div class="form-group">
+          <label for="toastrType">Toastr Type</label>
+          <div id="toastrType">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="type" id="successType" value="success" [(ngModel)]="toastr.type">
+              <label class="form-check-label" for="successType">Success</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="type" id="InfoType" value="info" [(ngModel)]="toastr.type">
+              <label class="form-check-label" for="InfoType">Info</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="type" id="WarningType" value="warning" [(ngModel)]="toastr.type">
+              <label class="form-check-label" for="WarningType">Warning</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="type" id="ErrorType" value="error" [(ngModel)]="toastr.type">
+              <label class="form-check-label" for="ErrorType">Error</label>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="toastrTitle">Toastr Title</label>
+        <input type="text" class="form-control" id="toastrTitle" name="title" [(ngModel)]="toastr.title">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="toastrMessage">Toastr Message</label>
+        <input type="text" class="form-control" id="toastrMessage" name="message" [(ngModel)]="toastr.message">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="closeButton" name="closeButton" [(ngModel)]="toastr.individualConfig.closeButton">
+        <label class="form-check-label" for="closeButton">Show Close Button ?</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="disableTimeOut" name="disableTimeOut" [(ngModel)]="toastr.individualConfig.disableTimeOut">
+        <label class="form-check-label" for="disableTimeOut">Disable TimeOut ?</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="timeOut">TimeOut</label>
+        <input type="number" class="form-control" id="timeOut" name="timeOut" [(ngModel)]="toastr.individualConfig.timeOut" [disabled]="toastr.individualConfig.disableTimeOut">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="extendedTimeOut">Extended TimeOut</label>
+        <input type="number" class="form-control" id="extendedTimeOut" name="extendedTimeOut" [(ngModel)]="toastr.individualConfig.extendedTimeOut" [disabled]="toastr.individualConfig.disableTimeOut">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="enableHtml" name="enableHtml" [(ngModel)]="toastr.individualConfig.enableHtml">
+        <label class="form-check-label" for="enableHtml">Enable HTML in Message ?</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="progressBar" name="progressBar" [(ngModel)]="toastr.individualConfig.progressBar">
+        <label class="form-check-label" for="progressBar">Show Progress Bar ?</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="progressAnimation">Progress Animation Class</label>
+        <input type="text" class="form-control" id="progressAnimation" name="progressAnimation" [(ngModel)]="toastr.individualConfig.progressAnimation" [disabled]="!toastr.individualConfig.progressBar">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="toastClass">Toastr Class</label>
+        <input type="text" class="form-control" id="toastClass" name="toastClass" [(ngModel)]="toastr.individualConfig.toastClass">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="positionClass">Toastr Position Class</label>
+        <input type="text" class="form-control" id="positionClass" name="positionClass" [(ngModel)]="toastr.individualConfig.positionClass">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="titleClass">Toastr Title Class</label>
+        <input type="text" class="form-control" id="titleClass" name="titleClass" [(ngModel)]="toastr.individualConfig.titleClass">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="messageClass">Toastr Message Class</label>
+        <input type="text" class="form-control" id="messageClass" name="messageClass" [(ngModel)]="toastr.individualConfig.messageClass">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="tapToDismiss" name="tapToDismiss" [(ngModel)]="toastr.individualConfig.tapToDismiss">
+        <label class="form-check-label" for="tapToDismiss">Tap To Dismiss ?</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
