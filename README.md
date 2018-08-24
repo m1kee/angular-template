@@ -1,5 +1,16 @@
 # M1keeTemplate
 
+This Repo is a Angular 6 Template that contains:
+
+- Bootstrap 4 (only css)
+- ngx-bootstrap (an angular version of bootstrap 4 components)
+- ngx-toastr (toastr messages)
+- font-awesome 5
+
+After cloning the repo, open a gitbash console on project folder and run `npm install` to install all node modules.
+
+# Dev Info
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 
 ## Development server
