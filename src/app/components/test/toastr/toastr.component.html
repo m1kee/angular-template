@@ -1,4 +1,8 @@
-<h1> Toastr Examples </h1>
+<h1>
+  Toastr Examples
+  <a href="https://github.com/scttcper/ngx-toastr" target="_blank" style="font-size: 50%;"> Official Documentation </a>
+</h1>
+
 <hr>
 
 <button type="button" class="btn btn-success" (click)="createToastrMessage()">
@@ -36,6 +40,12 @@
             </div>
           </div>
         </div>
+    </div>
+    <div class="col">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="tapToDismiss" name="tapToDismiss" [(ngModel)]="toastr.individualConfig.tapToDismiss">
+        <label class="form-check-label" for="tapToDismiss">Tap To Dismiss ?</label>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -79,7 +89,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-6">
+    <div class="col">
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="enableHtml" name="enableHtml" [(ngModel)]="toastr.individualConfig.enableHtml">
         <label class="form-check-label" for="enableHtml">Enable HTML in Message ?</label>
@@ -91,10 +101,19 @@
         <label class="form-check-label" for="progressBar">Show Progress Bar ?</label>
       </div>
     </div>
-    <div class="col">
+    <div class="col-6">
       <div class="form-group">
         <label for="progressAnimation">Progress Animation Class</label>
-        <input type="text" class="form-control" id="progressAnimation" name="progressAnimation" [(ngModel)]="toastr.individualConfig.progressAnimation" [disabled]="!toastr.individualConfig.progressBar">
+        <div id="progressAnimation">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="decreasingAnimation" id="decreasingAnimation" value="decreasing" [(ngModel)]="toastr.individualConfig.progressAnimation" [disabled]="!toastr.individualConfig.progressBar">
+            <label class="form-check-label" for="decreasingAnimation">Decreasing Animation</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="decreasingAnimation" id="increasingAnimation" value="increasing" [(ngModel)]="toastr.individualConfig.progressAnimation" [disabled]="!toastr.individualConfig.progressBar">
+            <label class="form-check-label" for="increasingAnimation">Increasing Animation</label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -107,8 +126,31 @@
     </div>
     <div class="col">
       <div class="form-group">
-        <label for="positionClass">Toastr Position Class</label>
-        <input type="text" class="form-control" id="positionClass" name="positionClass" [(ngModel)]="toastr.individualConfig.positionClass">
+        <label for="positionClass-y">Toastr Position</label>
+        <div id="positionClass-y">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="position-y" id="position-top" value="top" [(ngModel)]="toastr.individualConfig.positiony" (change)="changeToastrPositionClass()">
+            <label class="form-check-label" for="position-top">Top</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="position-y" id="position-bottom" value="bottom" [(ngModel)]="toastr.individualConfig.positiony" (change)="changeToastrPositionClass()">
+            <label class="form-check-label" for="position-bottom">Bottom</label>
+          </div>
+        </div>
+        <div id="positionClass-x">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="position-x" id="position-left" value="left" [(ngModel)]="toastr.individualConfig.positionx" (change)="changeToastrPositionClass()">
+            <label class="form-check-label" for="position-left">Left</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="position-x" id="position-center" value="center" [(ngModel)]="toastr.individualConfig.positionx" (change)="changeToastrPositionClass()">
+            <label class="form-check-label" for="position-center">Center</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="position-x" id="position-right" value="right" [(ngModel)]="toastr.individualConfig.positionx" (change)="changeToastrPositionClass()">
+            <label class="form-check-label" for="position-right">Right</label>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col">
@@ -124,14 +166,17 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="tapToDismiss" name="tapToDismiss" [(ngModel)]="toastr.individualConfig.tapToDismiss">
-        <label class="form-check-label" for="tapToDismiss">Tap To Dismiss ?</label>
+
+  <accordion>
+    <accordion-panel (isOpenChange)="showTypeScriptObject($event)" [panelClass]="panelClass">
+      <div accordion-heading class="clickable">
+        <h6> {{ headingText }} </h6>
       </div>
-    </div>
-  </div>
+      <div>
+        <pre><code class="text-white">var toastrObj = {{ toastr | json }}</code></pre>
+      </div>
+    </accordion-panel>
+  </accordion>
 </div>
 
 

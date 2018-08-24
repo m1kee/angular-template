@@ -24,7 +24,7 @@ import {
     declarations: [],
     imports: [
         CommonModule,
-        AccordionModule,
+        AccordionModule.forRoot(),
         AlertModule,
         ButtonsModule,
         CarouselModule,

@@ -25,12 +25,17 @@ export class ToastrComponent {
       progressAnimation: 'decreasing',
       toastClass: 'toast',
       positionClass: 'toast-top-right',
+      positionx: 'right',
+      positiony: 'top',
       titleClass: 'toast-title',
       messageClass: 'toast-message',
       tapToDismiss: true,
       onActivateTick: false
     }
   };
+
+  headingText = 'Show TypeScript Object';
+  panelClass = 'bg-dark text-white border-primary';
 
   constructor(private toastrService: ToastrService) { }
 
@@ -52,6 +57,22 @@ export class ToastrComponent {
         this.toastrService.error(this.toastr.message, this.toastr.title, this.toastr.individualConfig);
         break;
     }
+  }
+
+  changeToastrPositionClass() {
+    console.log('old toastrPositionClass:', this.toastr.individualConfig.positionClass);
+    console.log('position-x:', this.toastr.individualConfig.positionx);
+    console.log('position-y:', this.toastr.individualConfig.positiony);
+
+    this.toastr.individualConfig.positionClass =
+      `toast-${ this.toastr.individualConfig.positiony }-${ this.toastr.individualConfig.positionx }`;
+
+    console.log('updated toastrPositionClass:', this.toastr.individualConfig.positionClass);
+  }
+
+  showTypeScriptObject(show: boolean) {
+    this.headingText = !show ? 'Show TypeScript Object' : 'Hide TypeScript Object';
+    console.log(`Accordion has been ${ show ? 'opened' : 'closed' }`);
   }
 
 }
