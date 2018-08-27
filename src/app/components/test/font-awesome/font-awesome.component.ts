@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FontAwesomeComponent implements OnInit {
 
+  myFontAwesomeIcon = {
+    iconName: 'amazon-pay',
+    prefix: 'fab'
+  };
+
   constructor() { }
 
   ngOnInit() {
