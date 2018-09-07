@@ -8,7 +8,10 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 library.add(fas, fab, far);
 
-import { NgxBootstrapModule } from './ngx-bootstrap.module';
+// Omit bootstrap to replace for angular-material
+// import { NgxBootstrapModule } from './ngx-bootstrap.module';
+// Adding angular-material components
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
@@ -34,7 +37,9 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    NgxBootstrapModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    // NgxBootstrapModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     APP_ROUTING,
