@@ -11,7 +11,7 @@ library.add(fas, fab, far);
 // Omit bootstrap to replace for angular-material
 // import { NgxBootstrapModule } from './ngx-bootstrap.module';
 // Adding angular-material components
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatDividerModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
@@ -39,6 +39,9 @@ import { HomeComponent } from './components/home/home.component';
     FontAwesomeModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatDividerModule,
     // NgxBootstrapModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
